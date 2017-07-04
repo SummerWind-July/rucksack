@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关键字整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .nav {
+            text-align: left;
+            float: left;
+            position: fixed;
+            background-color: #E3EDCD;
+            text-align: center;
+            margin: 0 10px;
+            border: 1px solid #999;
+        }
+
+        .nav h3 {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .nav li a {
+            color: #666;
+            display: block;
+            width: 100px;
+            height: 22px;
+            border-top: 1px solid #999;
+        }
+
+        .nav li a:hover{
+            background-color: #fff;
+        }
+        
+        .content {
+            background-color: #FFF2E2;
+            margin-left: 120px;
+            margin-top: 10px;
+            padding-bottom:100px;
+        }
+
+        .content h3 {
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+            font-size: 30px;
+            border-bottom: 2px solid #999;
+        }
+
+        .content li h4 {
+            height: 50px;
+            line-height: 50px;
+            font-size: 25px;
+        }
+
+        h4:target{
+            color: red;
+        }
+        
+        .content li > p {
+            text-indent: 2em;
+        }
+
+        .content li > div > p {
+            padding-left: 40px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            background-color: #f5f5f5;
+            font-family: Courier New !important;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <h3>关键字</h3>
+    <ul>
+        <li><a href="#break">break</a></li>
+        <li><a href="#do">do</a></li>
+        <li><a href="#instanceof">instanceof</a></li>
+        <li><a href="#typeof">typeof</a></li>
+        <li><a href="#switch">switch</a></li>
+        <li><a href="#case">case</a></li>
+        <li><a href="#default">default</a></li>
+        <li><a href="#if">if</a></li>
+        <li><a href="#else">else</a></li>
+        <li><a href="#new">new</a></li>
+        <li><a href="#var">var</a></li>
+        <li><a href="#return">return</a></li>
+        <li><a href="#for">for</a></li>
+        <li><a href="#while">while</a></li>
+        <li><a href="#void">void</a></li>
+        <li><a href="#continue">continue</a></li>
+        <li><a href="#debugger">debugger</a></li>
+        <li><a href="#function">function</a></li>
+        <li><a href="#this">this</a></li>
+        <li><a href="#with">with</a></li>
+        <li><a href="#throw">throw</a></li>
+        <li><a href="#delete">delete</a></li>
+        <li><a href="#in">in</a></li>
+        <li><a href="#try">try</a></li>
+        <li><a href="#catch">catch</a></li>
+        <li><a href="#finally">finally</a></li>
+    </ul>
+</div>
+<div class="content">
+    <h3>关键字的解释与举例</h3>
+    <ul>
+        <li class="break">
+            <h4 id="break">一、break</h4>
+            <p>
+                break 语句用于中止当前循环或 switch 语句或 label 语句，并把程序控制流转到紧接着被中止语句后面的语句。
+            </p>
+            <div>
+                <span>例句1:循环语句</span>
+                <p>
+                    for(var i=0;i<10;i++){</br>
+                    &nbsp;&nbsp;if(i==3) break;</br>
+                    &nbsp;&nbsp;console.log(i);　　//0,1,2</br>
+                    }
+                </p>
+                <span>例句2:switch语句</span>
+                <p>
+                    function main(arg){</br>
+                    &nbsp;&nbsp;switch(arg){</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;case 1:console.log(1); break;</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;case 2:console.log(2);</br>
+                    &nbsp;&nbsp;}</br>
+                    &nbsp;&nbsp;console.log(3);</br>
+                    }</br>
+                    main(1);　　//1,3
+                </p>
+                <span>例句3:lable语句</span>
+                <p>
+                    var num = 0;</br>
+                    outPoint:</br>
+                    for (var i = 0 ; i < 10 ; i++){</br>
+                    &nbsp;&nbsp;for (var j = 0 ; j < 10 ; j++){</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if( i == 5 && j == 5 ){</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break outPoint;</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}</br>
+                    &nbsp;&nbsp;num++;</br>
+                    &nbsp;&nbsp;}</br>
+                    }</br>
+                    alert(num); // 循环在 i 为5，j 为5的时候跳出双循环，返回到outPoint层继续执行，输出 55
+                </p>
+            </div>
+        </li>
+        <li class="do">
+            <h4 id="do">二、do</h4>
+            <p>
+                关键字do是用来标识do...while循环的开始，用while来标识循环的结尾并进入循环条件判断，和while循环不同，do...while循环是用分号结尾的，且该循环至少会执行一次。
+            </p>
+            <div>
+                <span>例句:</span>
+                <p>
+                    var num = 6;</br>
+                    do{</br>
+                    &nbsp;&nbsp;console.log(num);　　//6</br>
+                    &nbsp;&nbsp;num++;</br>
+                    }</br>
+                    while(num<5);</br>
+                </p>
+            </div>
+        </li>
+        <li class="instanceof">
+            <h4 id="instanceof">三、instanceof</h4>
+            <p>
+                instanceof运算符用来判断一个构造函数的prototype属性所指向的对象是否存在另外一个要检测对象的原型链上。
+            </p>
+            <div>
+                <span>语法:</span>
+                <p>
+                    //obj:实例化对象</br>
+                    //Object:构造函数</br>
+                    obj instanceof Object;
+                </p>
+                <span>例句1:instanceof的普通的用法</span>
+                <p>
+                    function Person(){};</br>
+                    function Student(){};</br>
+                    var p =new Person();</br>
+                    var s=new Student();</br>
+                    console.log(p instanceof Person);//true</br>
+                    console.log(s instanceof Person);//false
+                </p>
+                <span>例句2:继承中判断实例化对象是否属于它的父类</span>
+                <p>
+                    function Person(){};</br>
+                    function Student(){};</br>
+                    var p =new Person();</br>
+                    Student.prototype=p;//继承原型</br>
+                    var s=new Student();</br>
+                    console.log(s instanceof Student);//true</br>
+                    console.log(s instanceof Person);//true
+                </p>
+                <span>例句3:复杂用法</span>
+                <p>
+                    function Person() {}</br>
+                    //Object.prototype.__proto__ === null</br>
+                    console.log(Object instanceof Object); //true</br>
+                    //第一个Object的原型链：Object=>Object.__proto__ =>
+                    Function.prototype=>Function.prototype.__proto__=>Object.prototype</br>
+                    //第二个Object的原型：Object=> Object.prototype</br>
+                    </br>
+                    console.log(Function instanceof Function); //true</br>
+                    //第一个Function的原型链：Function=>Function.__proto__ => Function.prototype</br>
+                    //第二个Function的原型：Function=>Function.prototype</br>
+                    </br>
+                    console.log(Function instanceof Object); //true</br>
+                    //Function的原型链：Function=>Function.__proto__=>Function.prototype=>Function.prototype.__proto__=>Object.prototype</br>
+                    //Object的原型：Object => Object.prototype</br>
+                    </br>
+                    console.log(Person instanceof Function); //true</br>
+                    //Person的原型链：Person=>Person.__proto__=>Function.prototype</br>
+                    //Function的原型：Function=>Function.prototype</br>
+                    </br>
+                    console.log(String instanceof String); //false</br>
+                    //第一个String的原型链：String=>String.__proto__=>Function.prototype=>Function.prototype.__proto__=>Object.prototype</br>
+                    //第二个String的原型链：String=>String.prototype</br>
+                    </br>
+                    console.log(Boolean instanceof Boolean); //false</br>
+                    //第一个Boolean的原型链：Boolean=>Boolean.__proto__=>Function.prototype=>Function.prototype.__proto__=>Object.prototype</br>
+                    //第二个Boolean的原型链：Boolean=>Boolean.prototype</br>
+                    </br>
+                    console.log(Person instanceof Person); //false</br>
+                    //第一个Person的原型链：Person=>Person.__proto__=>Function.prototype=>Function.prototype.__proto__=>Object.prototype</br>
+                    //第二个Person的原型链：Person=>Person.prototype
+                </p>
+                <span>例句4:需注意的点</span>
+                <p>
+                    function Person(){};</br>
+                    var p =new Person();</br>
+                    console.log(p instanceof Person);//true 改变前</br>
+                    Person.prototype={};//改变Person.prototype属性的值</br>
+                    console.log(p instanceof Person);//false 改变后
+                </p>
+                <span>函数模拟:</span>
+                <p>
+                    //A instanceof B </br>
+                    function _instanceof(A, B) {</br>
+                    &nbsp;&nbsp;var O = B.prototype;// 取B的显示原型</br>
+                    &nbsp;&nbsp;A = A.__proto__;// 取A的隐式原型</br>
+                    &nbsp;&nbsp;while (true) {</br>
+                    &nbsp;&nbsp;//Object.prototype.__proto__ === null</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if (A === null)</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if (O === A)// 这里重点：当 O 严格等于 A 时，返回 true</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;A = A.__proto__;</br>
+                    &nbsp;&nbsp;}</br>
+                    }
+                </p>
+            </div>
+        </li>
+        <li class="typeof">
+            <h4 id="typeof">四、typeof</h4>
+            <p>typeof在js中是一个一元操作符，可以判断操作数的类型，其返回值为字符串，有number、string、object、boolean、function、undefined、symbol
+                (ECMAScript 6 新增)，使用方式可以是typeof 操作数或typeof(操作数)。</p>
+            <div>
+                <span>例句:</span>
+                <p>
+                    typeof NaN ; //返回值：number NaN特殊的非数字值</br>
+                    typeof Infinity ; //返回值：number Infinity无穷大特殊值</br>
+                    typeof 123 ; //返回值：number</br>
+                    typeof '123' ; //返回值：string</br>
+                    typeof(true) ; //返回值：boolean</br>
+                    typeof(Date) ; //返回值：function</br>
+                    typeof(s) ; //返回值：undefined 因为s作为一个变量未被定义，所以这里的返回值是undefined</br>
+                    typeof(undefined) ; //返回值：undefined</br>
+                    typeof(document) ; //返回值：object document是DOM下的一个对象</br>
+                    typeof(null) ; //返回值：object</br>
+                    //Symbol (ECMAScript 6 新增)</br>
+                    typeof Symbol() ; //返回值：symbol</br>
+                    typeof Symbol('foo') ; //返回值：symbol</br>
+                    typeof Symbol.iterator ; //返回值：symbol
+                </p>
+            </div>
+        </li>
+        <li class="switch">
+            <h4 id="switch">五、switch</h4>
+            <p>
+                switch
+                语句用于基于不同的条件来执行不同的动作。如果在函数中使用switch语句，可以使用return来代替break，return和break都用于终止switch语句，也会防止一个case语句块执行完后继续执行下一个case语句块。
+            </p>
+            <div>
+                <span>例句1:</span>
+                <p>
+                    switch(v){</br>
+                    //计算switch小括号里面的表达式，得出结果与case后面的值比较如果相等，则执行case，否则跳过这个case。</br>
+                    &nbsp;&nbsp;case 1:</br>
+                    &nbsp;&nbsp;console.log('1');</br>
+                    &nbsp;&nbsp;break;</br>
+                    &nbsp;&nbsp;case 2:</br>
+                    &nbsp;&nbsp;console.log('2');</br>
+                    &nbsp;&nbsp;break;</br>
+                    &nbsp;&nbsp;case 3:</br>
+                    &nbsp;&nbsp;console.log('3');</br>
+                    &nbsp;&nbsp;break;</br>
+                    }
+                </p>
+                <span>例句2:</span>
+                <p>
+                    function convert(x){</br>
+                    &nbsp;&nbsp;switch(typeof x){</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;case'number'://将数字转换为十六进制数</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return x.toString(16);</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;case'string'://返回两端带双引号的字符串</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return'"'+x+'"';</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;default://使用普通的方法转换其他类型</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return String(x);</br>
+                    &nbsp;&nbsp;}</br>
+                    }
+                </p>
+            </div>
+        </li>
+        <li class="case">
+            <h4 id="case">六、case</h4>
+            <p>
+                每个case的匹配操作实际上是“===”恒等运算符比较，ECMAScript标准允许每个case关键字跟随任意的表达式。但是由于每次执行switch语句的时候，并不是所有的case表达式都能执行到，因此，应当避免使用带有副作用的case表达式，比如函数调用表达式和赋值表达式。最安全的做法就是在case表达式中使用常量表达式。</p>
+            <div>
+                <span>例句:</span>
+                <p>
+                    var s=3;</br>
+                    switch(v){//计算v的值</br>
+                    &nbsp;&nbsp;case 2://计算常量</br>
+                    &nbsp;&nbsp;console.log('2 true');</br>
+                    &nbsp;&nbsp;break;</br>
+                    &nbsp;&nbsp;case 1 + 2://计算数字相加</br>
+                    &nbsp;&nbsp;console.log('1 + 1 true');</br>
+                    &nbsp;&nbsp;break;</br>
+                    &nbsp;&nbsp;case 2* 2://计算数字相乘</br>
+                    &nbsp;&nbsp;console.log('1 * 2 true');</br>
+                    &nbsp;&nbsp;break;</br>
+                    &nbsp;&nbsp;case s * 2://计算变量</br>
+                    &nbsp;&nbsp;console.log('s * 2 true');</br>
+                    &nbsp;&nbsp;break;</br>
+                    }
+                </p>
+            </div>
+        </li>
+        <li class="default">
+            <h4 id="default">七、default</h4>
+            <p>在switch语句中default关键词用来规定匹配不存在时做的事情，"default:"标签可以放置在switch语句内的任何地方。</p>
+            <div>
+                <span>例句:</span>
+                <p>
+                    switch(n){</br>
+                    &nbsp;&nbsp;case 1:</br>
+                    &nbsp;&nbsp;console.log(1);</br>
+                    &nbsp;&nbsp;break;</br>
+                    &nbsp;&nbsp;case 2:</br>
+                    &nbsp;&nbsp;console.log(2);</br>
+                    &nbsp;&nbsp;break;</br>
+                    &nbsp;&nbsp;case 3:</br>
+                    &nbsp;&nbsp;console.log(3);</br>
+                    &nbsp;&nbsp;break;</br>
+                    &nbsp;&nbsp;default://如果所有的条件都不匹配执行</br>
+                    &nbsp;&nbsp;console.log("default");</br>
+                    &nbsp;&nbsp;break;</br>
+                    }
+                </p>
+            </div>
+        </li>
+        <li class="if">
+            <h4 id="if">八、if</h4>
+            <p>if语句是一种基本的控制语句,有条件地执行语句。</p>
+            <div>
+                <span>例句1:</span>
+                <p>
+                    if(expression)//计算expression的值，如果是true，执行statement。如果是false，不执行statement。</br>
+                    &nbsp;&nbsp;statement;//一行代码
+                </p>
+                <span>例句2:</span>
+                <p>
+                    if(!address){</br>
+                    &nbsp;&nbsp;address="";</br>
+                    &nbsp;&nbsp;message="Please specify a mailing address.";</br>
+                    }//多行代码
+                </p>
+            </div>
+        </li>
+        <li class="else">
+            <h4 id="else">九、else</h4>
+            <p>
+                if语句的第二种形式引入了else从句,当if的条件值是false的时候执行else中的逻辑。
+            </p>
+            <div>
+                <span>例句1:</span>
+                <p>
+                    if (time<20)</br>
+                    &nbsp;&nbsp;console.log("Good day");</br>
+                    else</br>
+                    &nbsp;&nbsp;console.log("Good evening");</br>
+                </p>
+                <span>例句2:</span>
+                <p>
+                    if (time<10){</br>
+                    &nbsp;&nbsp;console.log("早上好");</br>
+                    } else if (time>=10 && time<16){</br>
+                    &nbsp;&nbsp;console.log("今天好");</br>
+                    } else{</br>
+                    &nbsp;&nbsp;console.log("晚上好!");</br>
+                    }
+                </p>
+            </div>
+        </li>
+        <li class="new">
+            <h4 id="new">十、new</h4>
+            <p>new 运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一。</p>
+            <div>
+                <span>语法:</span>
+                <p>
+                    new Constructor(arguments);//Constructor构造函数,传参(arguments)
+                </p>
+                <span>例句1:</span>
+                <p>
+                    function Test(str) {</br>
+                    &nbsp;&nbsp;this.a = str;</br>
+                    }</br>
+                    var myTest = new Test('myTest');//用户自定义的对象</br>
+                    console.log(myTest);
+                </p>
+                <span>例句2:</span>
+                <p>
+                    var date = new Date();//内置对象</br>
+                    console.log(date);
+                </p>
+            </div>
+        </li>
+        <li class="var">
+            <h4 id="var">十一、var</h4>
+            <p>变量语句声明了一个变量，可选地将其初始化为一个值。变量声明无论出现在代码的任何位置，都会在任何代码执行之前处理(预解析)。</p>
+            <div>
+                <span>例句1:</span>
+                <p>
+                    var a;//声明一个变量</br>
+                    var a=1;//声明一个变量并赋值</br>
+                    var b=[];//声明一个数组</br>
+                    var c={};//声明一个对象</br>
+                    var x = y = 1; // x是全局变量，y是隐式全局变量
+                </p>
+                <span>例句2:</span>
+                <p>
+                    // 声明变量的作用域限制在其声明位置的上下文中，而非声明变量总是全局的。</br>
+                    function x() {</br>
+                    &nbsp;&nbsp;y = 1; // 在严格模式（strict mode）下会抛出ReferenceError异常。</br>
+                    &nbsp;&nbsp;var z = 2;</br>
+                    }</br>
+                    x();</br>
+                    console.log(y); // 打印"1" 。</br>
+                    console.log(z); // 抛出ReferenceError: z未在x外部声明。
+                </p>
+                <span>例句3:</span>
+                <p>
+                    //由于变量声明（以及其他声明）总是在任意代码执行之前处理的，所以在代码中的任意位置声明变量总是等效于在代码开头声明。</br>
+                    bla = 2;</br>
+                    var bla;</br>
+                    </br>
+                    // 可以理解为：</br>
+                    </br>
+                    var bla;</br>
+                    bla = 2;</br>
+                </p>
+            </div>
+        </li>
+        <li class="return">
+            <h4 id="return">十二、return</h4>
+            <p>
+                return语句只能在函数体内出现，如果不是的话会报语法错误。函数中的return语句既是指定函数调用后的返回值,位于return语句之后的任何代码都永远不会执行。
+            </p>
+            <div>
+                <span>例句1:</span>
+                <p>
+                    //没有return语句，调用表达式的结果是undefined。</br>
+                    function square(){</br>
+                    &nbsp;&nbsp;var a=1;</br>
+                    }</br>
+                    console.log(square());//undefined</br>
+                </p>
+                <span>例句2:</span>
+                <p>
+                    //return语句单独使用返回undefined。</br>
+                    function square(){</br>
+                    &nbsp;&nbsp;var a=1;</br>
+                    &nbsp;&nbsp;return;</br>
+                    }</br>
+                    console.log(square());//undefined</br>
+                </p>
+                <span>例句3:</span>
+                <p>
+                    //函数执行到return语句的时候，终止执行，并返回值给调用程序。</br>
+                    function square(){</br>
+                    &nbsp;&nbsp;var a=1;</br>
+                    &nbsp;&nbsp;return a;</br>
+                    }</br>
+                    console.log(square());//1</br>
+                </p>
+                <span>例句4:</span>
+                <p>
+                    function square(){</br>
+                    &nbsp;&nbsp;var a=1;</br>
+                    &nbsp;&nbsp;var b=1;</br>
+                    &nbsp;&nbsp;return a,b;//只会返回a的值</br>
+                    }</br>
+                    console.log(square());//1</br>
+                </p>
+            </div>
+        </li>
+        <li class="for">
+            <h4 id="for">十三、for</h4>
+            <p>for 循环可以将代码块执行指定的次数，for/in 循环遍历对象的属性。</p>
+            <div>
+                <span>例句1:</span>
+                <p>
+                    //循环遍历数组</br>
+                    var arr=[1,2,3,4,5];</br>
+                    for (var i=0;i&lt;arr.length;i++){</br>
+                    &nbsp;&nbsp;console.log(arr[i]);</br>
+                    }
+                </p>
+                <span>例句2:</span>
+                <p>
+                    //for...in遍历对象</br>
+                    var person={fname:"John",lname:"Doe",age:25};</br>
+                    for (x in person){</br>
+                    &nbsp;&nbsp;console.log(person[x]);</br>
+                    }
+                </p>
+            </div>
+        </li>
+        <li class="while">
+            <h4 id="while">十四、while</h4>
+            <p>while 循环会在指定条件为true时循环执行代码块</p>
+            <div>
+                <span>例句1:</span>
+                <p>
+                    var i=0;</br>
+                    while (i<5){</br>
+                    &nbsp;&nbsp;console.log(i);</br>
+                    &nbsp;&nbsp;i++;</br>
+                    }
+                </p>
+                <span>例句2:</span>
+                <p>
+                    var i=0;</br>
+                    do{</br>
+                    &nbsp;&nbsp;console.log(i);</br>
+                    &nbsp;&nbsp;i++;</br>
+                    }while (i<5);
+                </p>
+            </div>
+        </li>
+        <li class="void">
+            <h4 id="void">十五、void</h4>
+            <p>void 运算符对任何值返回 undefined。该运算符通常用于避免输出不应该输出的值。还用于填充&lt;a&gt;的href确保点击时不会产生页面跳转; 填充&lt;image&gt;的src，确保不会向服务器发出垃圾请求。</p>
+            <div>
+                <span>例句1:</span>
+                <p>
+                    function x() {</br>
+                    &nbsp;&nbsp;var undefined = 'hello world',//因为undefined在javascript中不是保留字，可以用undefined做为变量名</br>
+                    &nbsp;&nbsp;f = {},</br>
+                    &nbsp;&nbsp;window = {</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;'undefined': 'joke'</br>
+                    &nbsp;&nbsp;};</br>
+                    &nbsp;&nbsp;console.log(undefined);// hello world</br>
+                    &nbsp;&nbsp;console.log(window.undefined); //joke</br>
+                    &nbsp;&nbsp;console.log(f.a === undefined); //false</br>
+                    &nbsp;&nbsp;console.log(f.a === void 0); //true</br>
+                    }</br>
+                    x();
+                </p>
+                <span>例句2:</span>
+                <p>
+                    //使 window.open() 调用返回 undefined，它不是有效值，不会显示在浏览器窗口中。</br>
+                    &lt;a href="javascript:void(window.open('about:blank'))"&gt;Click me&lt;/a&gt;</br>
+                    &lt;img src='javascript:void(0)'/&gt;//确保不会向服务器发出垃圾请求。
+                </p>
+            </div>
+        </li>
+        <li class="continue">
+            <h4 id="continue">十六、continue</h4>
+            <p>
+                continue语句和break语句相似。所不同的是，它不是退出一个循环，而是转而执行下一次循环。continue语句只能用在while语句、do/while语句、for语句、或者for/in语句的循环体内，在其它地方使用都会引起错误！
+            </p>
+            <div>
+                <span>例句:</span>
+                <p>
+                    for(var i=1;i<=10;i++) {</br>
+                    &nbsp;&nbsp;if(i==8) {</br>
+                    &nbsp;&nbsp; &nbsp;&nbsp;continue;//跳出本次循环,开始下次循环</br>
+                    &nbsp;&nbsp;}</br>
+                    &nbsp;&nbsp;console.log(i);</br>
+                    }
+                </p>
+            </div>
+        </li>
+        <li class="debugger">
+            <h4 id="debugger">十七、debugger</h4>
+            <p>
+                debugger是谷歌浏览器提供的调试语句，用于停止执行 JavaScript，并调用 (如果可用) 调试函数。使用 debugger
+                语句类似于在代码中设置断点。需要带有条件的断点，你只需要用if语句包围它.
+            </p>
+            <div>
+                <span>例句:</span>
+                <p>
+                    for(i = 1; i<5; i++) {</br>
+                    &nbsp;&nbsp;// Print i to the Output window</br>
+                    &nbsp;&nbsp;console.log("loop index is " + i);</br>
+                    &nbsp;&nbsp;// Wait for user to resume</br>
+                    &nbsp;&nbsp;debugger;</br>
+                    }
+                </p>
+            </div>
+        </li>
+        <li class="function">
+            <h4 id="function">十八、function</h4>
+            <p>function用来定义函数，function语句里的花括号是必需的，即使函数体只包含一条语句。</p>
+            <div>
+                <span>例句1:最基本函数声明</span>
+                <p>
+                    function func(){}</br>
+                    或</br>
+                    var func=function(){};</br>
+                </p>
+                <span>例句2:作为一个类构造器使用</span>
+                <p>
+                    function class(){}</br>
+                    class.prototype={};</br>
+                    var item=new class();</br>
+                </p>
+                <span>例句3:作为闭包使用</span>
+                <p>
+                    (function(){</br>
+                    //独立作用域</br>
+                    })();</br>
+                </p>
+                <!--<span>例句4:作为选择器使用</span>-->
+                <!--<p>-->
+                <!--var addEvent=new function(){-->
+                <!--if(!-[1,]) return function(elem,type,func){attachEvent(elem,'on'+type,func);};//兼容IE-->
+                <!--else return function(elem,type,func){addEventListener(elem,type,func,false);}-->
+                <!--};//避免了重复判断-->
+                <!--</p>-->
+            </div>
+        </li>
+        <li class="this">
+            <h4 id="this">十九、this</h4>
+            <p>this不能在类定义的外部使用，只能在类定义的内部使用。哪个对象调用this所在的函数，那么this代表的就是哪个对象实例。(详细资料请看上次同学发的this专题)</p>
+            <div>
+                <span>例句1:</span>
+                <p>
+                    //构造函数
+                    function Person() {</br>
+                    &nbsp;&nbsp;this.age = 18;</br>
+                    }</br>
+                    var student = new Person();</br>
+                    console.log(student.age);//18</br>
+                </p>
+                <span>例句2:</span>
+                <p>
+                    obj.onscroll = function () {</br>
+                    &nbsp;&nbsp;console.log(this);//this指向obj这个对象</br>
+                    }
+                </p>
+            </div>
+        </li>
+        <li class="with">
+            <h4 id="with">二十、with</h4>
+            <p>
+                with 语句可以方便地用来引用某个特定对象中已有的属性，但是不能用来给对象添加属性。</br>
+                注意:</br>
+                1、严格模式下不允许使用with语句，否则将视为语法错误。</br>
+                2、由于大量使用with语句会到时性能下降，同时也会给调试代码造成困难，因此在开发大型应用程序时，不建议使用with语句。</br>
+            </p>
+            <div>
+                <span>例句:</span>
+                <p>
+                    with(location) {</br>
+                    &nbsp;&nbsp;var url = href;//可以直接访问location对象中的href属性</br>
+                    }
+                </p>
+            </div>
+        </li>
+        <li class="throw">
+            <h4 id="throw">二十一、throw</h4>
+            <p>
+                throw 语句用来抛出一个用户自定义的异常。当前函数的执行将被停止（throw之后的语句将不会执行），并且控制将被传递到调用堆栈中的第一个 catch 块。如果调用者函数中没有catch块，程序将会终止。
+            </p>
+            <div>
+                <span>例句1:</span>
+                <p>
+                    throw '错误';//代码执行至此,抛出错误,后续代码不执行</br>
+                    console.log(1);</br>
+                </p>
+                <span>例句2:</span>
+                <p>
+                    try {</br>
+                    &nbsp;&nbsp;throw '错误';//错误被catch捕获,代码可以执行下去</br>
+                    }catch(e){</br>
+                    &nbsp;&nbsp;console.log(e);</br>
+                    }</br>
+                    console.log('这是最后输出的');</br>
+                </p>
+            </div>
+        </li>
+        <li class="delete">
+            <h4 id="delete">二十二、delete</h4>
+            <p>
+                delete 操作符会从某个对象上移除指定属性。成功删除的时候回返回 true，否则返回 false。但是，重要的是要考虑以下情况：</br>
+                1、如果你删除的属性在对象上不存在，那么delete将不会起作用，但仍会返回true</br>
+                2、如果 delete
+                操作符删除成功，则被删除的属性将从所属的对象上彻底消失。然后，如果该对象的原型链上有一个同名属性，则该对象会从原型链上继承该同名属性。（也就是说delete操作只会在自身的属性上起作用）</br>
+                3、任何使用 var 声明的属性不能从全局作用域或函数的作用域中删除。这样的话，delete操作不能删除任何在全局作用域中的函数（无论这个函数是来自于函数声明或函数表达式）</br>
+                4、在对象(object)中的函数是能够用delete操作删除的。</br>
+                5、任何用let或const声明的属性不能够从它被声明的作用域中删除。(ECMA6中let是用来声明块级作用变量,const用来声明常量)</br>
+                6、不可设置的(Non-configurable)属性不能被移除。这意味着像Math, Array,
+                Object内置对象的属性以及使用Object.defineProperty()方法设置为不可设置的属性不能被删除。
+            </p>
+            <div>
+                <span>例句1:</span>
+                <p>
+                    var a=1;</br>
+                    b=1;</br>
+                    console.log(delete a;);//false var声明的变量不能被删除</br>
+                    console.log(delete b);//true 隐式全局变量能被删除
+                </p>
+                <span>例句2:</span>
+                <p>
+                    var Employee = {</br>
+                    &nbsp;&nbsp;age: 28,</br>
+                    &nbsp;&nbsp;name: 'abc',</br>
+                    &nbsp;&nbsp;designation: 'developer'</br>
+                    }</br>
+                    console.log(delete Employee.name); // true</br>
+                    console.log(delete Employee.age); // true</br>
+                    // 当试着删除一个不存在的属性时</br>
+                    // 同样会返回true</br>
+                    console.log(delete Employee.salary); // true
+                </p>
+                <span>例句3:</span>
+                <p>
+                    var arr=[1,2,3,4,5];</br>
+                    delete arr[1];</br>
+                    console.log(arr); //删除数组下标 下标会不连续
+                </p>
+            </div>
+        </li>
+        <li class="in">
+            <h4 id="in">二十三、in</h4>
+            <p>
+                如果指定的属性存在于指定的对象中，则 in 运算符会返回 true。in右操作数必须是一个对象值。比如，可以是一个String包装对象，但不能是一个字符串原始值。
+            </p>
+            <div>
+                <span>例句:</span>
+                <p>
+                    var arr = ['red','green','blue'];</br>
+                    console.log(1 in arr);//true</br>
+                    var color1 = new String("green");</br>
+                    "length" in color1 // 返回true</br>
+                    var color2 = "coral";</br>
+                    "length" in color2 // 报错(color2不是对象)</br>
+                </p>
+            </div>
+        </li>
+        <li class="try">
+            <h4 id="try">二十四、try</h4>
+            <p>
+                将可能引发错误的代码放在try块中,try语句包含了由一个或者多个语句组成的try块,且至少catch和finally二者之一组成完整的语句，或者两个兼有，如果是语法错误不能被try..catch捕获。
+            </p>
+            <div>
+                <span>例句:</span>
+                <p>
+                    try{</br>
+                    &nbsp;&nbsp;document.querySelector(".box").style.background='pink';//这里写可能出现异常的代码  </br>
+                    }catch(err){</br>
+                    &nbsp;&nbsp;console(err);</br>
+                    }
+                </p>
+            </div>
+        </li>
+        <li class="catch">
+            <h4 id="catch">二十五、catch</h4>
+            <p>
+                当try语句抛出错误时,执行catch中的语句,catch(e)中的e用来保存被抛出声明指定的值。你可以用这个标识符来获取关于被抛出异常的信息。
+            </p>
+            <div>
+                <span>例句:</span>
+                <p>
+                    try{</br>
+                    &nbsp;&nbsp;throw '错误';</br>
+                    } catch(e) {</br>
+                    &nbsp;&nbsp;console.log(e);//e的值就是抛出的错误内容：'错误'</br>
+                    }
+                </p>
+            </div>
+        </li>
+        <li class="finally">
+            <h4 id="finally">二十六、finally</h4>
+            <p>finally 语句在 try 和 catch 之后执行，无论有无异常都会执行。通常用于释放资源。</p>
+            <div>
+                <span></span>
+                <p>
+                    try {</br>
+                    &nbsp;&nbsp;throw '错误';</br>
+                    }catch(e){</br>
+                    &nbsp;&nbsp;console.log(e);</br>
+                    }finally {</br>
+                    &nbsp;&nbsp;console.log('这是最后输出的');</br>
+                    }
+                </p>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
